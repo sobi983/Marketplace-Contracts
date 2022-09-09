@@ -197,6 +197,11 @@ describe(colors.red("Onion Auction testing").bgGreen, function () {
     expect(await ERC20.balanceOf(AtheleteAddress.address)).to.equal("15400000000000000000")
     expect(await ERC20.balanceOf(operationalWallet.address)).to.equal("750000000000000000")
   })
+
+  it("Adding currency in Secondary MP", async()=>{
+    await SecondaryMP.addCurrency(ERC20BytesAddress.hash, ERC20.address)
+    expect(await SecondaryMP.addressCurrency(ERC20BytesAddress.hash)).to.equal(ERC20.address)
+  })
           
  
 });
